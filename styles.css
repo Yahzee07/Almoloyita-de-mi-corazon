@@ -1,0 +1,513 @@
+/* ----------------------------------
+   ESTILOS BASE
+---------------------------------- */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f3f3f7;
+    color: #2a2a2a;
+    transition: background .3s, color .3s;
+    overflow-x: hidden; /* evita scroll horizontal */
+}
+
+h1, h2, h3, p { margin: 0; }
+
+/* TITULOS */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fcfcfd;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #283593;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #D32F2F;
+}
+
+p {
+    font-size: 1.05rem;
+    color: #333;
+}
+
+/* ----------------------------------
+   NAV
+---------------------------------- */
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: .5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #FFE082;
+    transform: scale(1.1);
+}
+
+/* ----------------------------------
+   HEADER
+---------------------------------- */
+/* ----------------------------------
+   HEADER
+---------------------------------- */
+header {
+    background: #1e2d3a;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* asegurar contexto para z-index */
+    z-index: 1000;      /* superior al banner */
+}
+
+/* ----------------------------------
+   BANNER (Imagen 1600×795 acomodada)
+---------------------------------- */
+.banner {
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    position: relative; /* contexto para la imagen */
+    z-index: 1;         /* menor que el header */
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: auto;
+}
+
+.banner.blur img {
+    filter: blur(2px) brightness(.85);
+}
+
+/* ----------------------------------
+   CONTENIDO E IMÁGENES
+---------------------------------- */
+.section-img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    object-fit: cover;
+}
+
+.section-img.zoom {
+    transition: transform .4s ease;
+}
+
+.section-img.zoom:hover {
+    transform: scale(1.03);
+}
+
+/* ----------------------------------
+   GRIDS
+---------------------------------- */
+.card-grid, .lugares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+/* ----------------------------------
+   CARDS
+---------------------------------- */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    border: 2px solid #D32F2F;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* ----------------------------------
+   FLIP-CARDS
+---------------------------------- */
+.flip-card {
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    perspective: 1000px;
+    margin: auto;
+}
+
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .8s ease;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flip-card-back {
+    background: white;
+    transform: rotateY(180deg);
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #D32F2F;
+}
+
+.flip-card-back h3 { color: #D32F2F; }
+.flip-card-back p { color: #444; }
+
+/* ----------------------------------
+   FORMULARIOS
+---------------------------------- */
+.contact-form {
+    background: none;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    border-left: 6px solid #D32F2F;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: 2px solid #D32F2F;
+    background: white;
+    font-family: "Poppins";
+}
+
+input:focus, textarea:focus {
+    border-color: #F44336;
+    box-shadow: 0 0 5px rgba(244,67,54,0.5);
+}
+
+button {
+    padding: 12px;
+    background: #D32F2F;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #B71C1C;
+    transform: scale(1.05);
+}
+
+/* ----------------------------------
+   MODO OSCURO
+---------------------------------- */
+body.dark {
+    background: #121212;
+    color: #e6e6e6;
+}
+
+body.dark header { background: #0b1720; }
+body.dark h1, body.dark h2, body.dark h3 { color: #ffb4b4; }
+body.dark p { color: #dcdcdc; }
+body.dark .card { background: #0f1720; border-color: #333; }
+body.dark .contact-form { background: #0f1416; border-left-color: #8b0000; }
+body.dark input, body.dark textarea { background: #0c1112; color: #e6e6e6; border-color: #333; }
+body.dark button { background: #8b0000; }
+body.dark nav a { color: #f5f5f5; }
+
+/* ----------------------------------
+   HAMBURGER MENU
+---------------------------------- */
+.header-controls { display: flex; gap: 12px; align-items: center; }
+
+.hamburger {
+    display: none;
+    width: 42px;
+    height: 36px;
+    border-radius: 8px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.08);
+    cursor: pointer;
+    padding: 6px;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+    border-radius: 3px;
+    transition: .35s;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+@media (max-width: 900px) {
+    nav ul {
+        position: fixed;
+        right: 12px;
+        top: 70px;
+        background: rgba(30,45,58,0.98);
+        padding: 20px;
+        border-radius: 10px;
+        flex-direction: column;
+        gap: 10px;
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: .3s;
+        z-index: 999;
+    }
+
+    nav.open ul { 
+        opacity: 1; 
+        transform: translateY(0); 
+        pointer-events: auto; 
+    }
+    .hamburger { display: block; }
+}
+
+
+/* ----------------------------------
+   ANIMACIONES
+---------------------------------- */
+.mostrar { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
+
+.card, .section-img, .contenido, h2, p, img {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    transition: all 1s ease;
+}
+
+/* ----------------------------------
+   TYPING EFFECT
+---------------------------------- */
+.typing {
+    display: inline-block;
+    border-right: 2px solid rgba(0,0,0,0.6);
+    padding-right: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* ----------------------------------
+   SLIDER / CAROUSEL
+---------------------------------- */
+.slider-wrap { position: relative; overflow: hidden; padding: 10px 0; }
+
+.slider-track {
+    display: flex;
+    gap: 18px;
+    transition: transform .6s cubic-bezier(.2,.8,.2,1);
+}
+
+.slider-item { min-width: 280px; }
+
+.slider-btn {
+    background: rgba(0,0,0,0.45);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: transform .15s;
+}
+
+.slider-btn:hover { transform: scale(1.05); }
+
+/* ----------------------------------
+   POPUP MENSAJE CENTRADO
+---------------------------------- */
+.popup-confirmacion {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(15, 15, 15, 0.95);
+  padding: 25px 35px;
+  border-radius: 14px;
+  width: auto;
+  max-width: 350px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  z-index: 9999999;
+  opacity: 0;
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+.popup-confirmacion.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-confirmacion p {
+  margin: 0;
+  color: #fffefe;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+/* ----------------------------------
+   CONTACTO SECCION IMAGEN + FORM
+---------------------------------- */
+#contacto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+#contacto .section-img {
+    width: 45%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    object-fit: cover;
+    margin: 0;
+}
+
+#contacto .contact-form {
+    flex: 1;
+    min-width: 250px;
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.2rem; }
+    p { font-size: 1rem; }
+
+    #contacto { flex-direction: column; align-items: center; }
+    #contacto .section-img,
+    #contacto .contact-form { width: 100%; max-width: 100%; margin: 10px 0; }
+
+    .flip-card { height: auto; min-height: 240px; }
+}
+/* ----------------------------------
+   TEXTO DE HISTORIA
+---------------------------------- */
+/* ----------------------------------
+   TEXTO DE HISTORIA (FONDO MODIFICADO)
+---------------------------------- */
+
+/* ----------------------------------
+   TEXTO DE HISTORIA (SIN FONDO)
+---------------------------------- */
+.texto-historia {
+    background: none; /* Fondo eliminado */
+    padding: 18px 22px;
+    border-left: 6px solid #D32F2F;
+    border-radius: 0; /* Opcional: sin bordes redondeados si quieres más simple */
+    margin: 18px 0;
+    line-height: 1.65;
+    font-size: 1.05rem;
+    color: #3e3e3e;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.texto-historia:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.texto-historia strong {
+    color: #D32F2F;
+}
+
+.texto-historia em {
+    color: #FF7043;
+    font-style: normal;
+}
+
+/* ANIMACIONES FADE-IN / FADE-UP */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.2s;
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .texto-historia {
+        font-size: 1rem;
+        padding: 15px 18px;
+    }
+}
